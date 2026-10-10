@@ -3,11 +3,12 @@ class Pizza{
     this.type = pizzaType;
     this.size = pizzaSize;
     this.crust = pizzaCrust;
+    
   }
-  get pizzaCrust(){
+  getCrust(){
     return this.crust;
   }
-  set pizzaCrust(newCrust){
+  setCrust(newCrust){
     this.crust = newCrust;
   }
   bake(){
@@ -16,6 +17,6 @@ class Pizza{
 }
 
 const myPizza = new Pizza("margerita","medium","thin");
-myPizza.pizzaCrust = "thick";
+myPizza.setCrust("thick");
 
 myPizza.bake();
