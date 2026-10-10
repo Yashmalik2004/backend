@@ -1,7 +1,13 @@
-const accId = 123;
-let accName = "John Doe";
-var accBalance = 1000.50;
-accState = "Active";
+const names = {
+  name1: "yash",
+  name2: "sneha",
+  name3: "amit",
+  name4: "keyur",
+  name5: "pathak",
+}
 
-console.table({ accId, accName, accBalance, accState });
+function sings({name3}){
+  console.log("holaaaaaa " + name3);
+}
 
+sings(names);
