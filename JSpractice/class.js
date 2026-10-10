@@ -32,7 +32,6 @@ class Pizza{
 const myPizza = new Pizza("margerita","medium","thin");
 myPizza.setCrust("thick");
 myPizza.setToppings("cheese","onion","tomato");
-myPizza.setToppings("cheese","onion","tomato");
-myPizza.setToppings("cheese","onion","tomato");
+
 
 myPizza.bake();
