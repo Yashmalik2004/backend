@@ -14,3 +14,6 @@ console.log(typeof obj);
 
 newObj = JSON.stringify(obj);
 console.log(newObj);
+
+const newobj2 = JSON.parse(newObj);
+console.log(newobj2);
