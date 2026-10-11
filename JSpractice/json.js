@@ -6,3 +6,4 @@ const obj = {
 }
 
 console.log(obj.name);
+for i
