@@ -1,0 +1,8 @@
+const obj = {
+  name:"yash",
+  age:22,
+  course:"btech cse",
+  university:"KR MANGALAM UNIVERSITY"
+}
+
+console.log(obj.name);
