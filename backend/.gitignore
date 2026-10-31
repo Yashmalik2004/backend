@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Logs and runtime output
+*.log
+logs/
+*.pid
+*.pid.lock
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# Build and tool caches
+dist/
+build/
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Editor and operating-system files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local Node tooling state
+.npm/
+.pnpm-store/
+
+.agents
+
+.claude
+
+.windsurf
