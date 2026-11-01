@@ -1,5 +1,6 @@
 import { prisma } from "../config/db.js";
 import bcrypt from "bcryptjs";
+import generateToken from "../utils/generateToken.js";
 
 //REGISTER LOGIC
 const register = async (req, res) => {
@@ -36,6 +37,8 @@ const register = async (req, res) => {
       password: hashedPassword
     }
   });
+  // if i want the user to get automatically logged in right after they register. Then I can generate a token after they register. 
+  const token = generateToken(user.id, res); 
   res
     .status(201)
     .json({
@@ -54,9 +57,47 @@ const register = async (req, res) => {
     });
   }
 };
+
+//LOGIN LOGIC
 const login = async (req, res) => {
-  res.json({ message: "user logged in successfully" });
+  const body = req.body;
+  const {email, password} = body ?? {};
+  const checkUserExists = await prisma.user.findUnique({
+    where: {
+      email: email,
+    },
+  });
+  if (!checkUserExists) {
+    return res.status(401).json({ message: "Invalid email or password" });
+  }
+  else{
+
+    //verify the password
+    const isPasswordValid = await bcrypt.compare(password, checkUserExists.password);
+    if(!isPasswordValid){
+      return res.status(401).json({
+        message: "Invalid email or password"
+      })
+    }
+    else{
+
+      //generate the token and send it to the user
+      const token = generateToken(checkUserExists.id, res);
+      return res.status(200).json({
+        message: "user logged in successfully",
+        data: {
+          user: {
+            id: checkUserExists.id,
+            email: checkUserExists.email,
+          },
+        },
+      });
+    }
+  }
 };
+
+
+//LOGOUT LOGIC
 const logout = async (req, res) => {
   res.json({ message: "user logged out successfully" });
 };
