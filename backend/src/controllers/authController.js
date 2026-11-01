@@ -99,7 +99,11 @@ const login = async (req, res) => {
 
 //LOGOUT LOGIC
 const logout = async (req, res) => {
-  res.json({ message: "user logged out successfully" });
+  res.cookie("token","",{
+    httpOnly: true,
+    expires: new Date(0)
+  });
+  res.status(201).json({ message: "user logged out successfully" });
 };
 
 export { register, login, logout };

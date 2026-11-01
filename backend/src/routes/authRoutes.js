@@ -5,9 +5,9 @@ const authRoutes = express.Router();
 
 authRoutes.post("/register", register);
 
-authRoutes.get("/login", login);
+authRoutes.post("/login", login);
 
-authRoutes.delete("/logout", logout);
+authRoutes.post("/logout", logout);
 
 
 
